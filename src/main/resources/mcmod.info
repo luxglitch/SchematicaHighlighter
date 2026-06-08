@@ -1,0 +1,17 @@
+[{
+	"modid": "${modId}",
+	"name": "${modName}",
+	"description": "Adds a clickable materials list to Schematica that highlights every remaining (un-placed) block of the selected material in the world, visible through walls so hidden blocks are easy to find.",
+	"version": "${modVersion}",
+	"mcversion": "${minecraftVersion}",
+	"authorList": ["luxglitch"],
+	"credits": "Built on top of Schematica by Lunatrius / GTNewHorizons.",
+	"dependants": [ ],
+	"dependencies": [ "Schematica", "LunatriusCore" ],
+	"parent": "",
+	"requiredMods": [ "Schematica", "LunatriusCore" ],
+	"screenshots": [ ],
+	"updateUrl": "",
+	"url": "",
+	"useDependencyInformation": true
+}]

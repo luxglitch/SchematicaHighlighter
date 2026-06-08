@@ -1,0 +1,27 @@
+# keybinds
+schematichighlight.key.category=Schematica Highlighter
+schematichighlight.key.open=Open material highlighter
+schematichighlight.key.clear=Clear highlights
+schematichighlight.key.beacon=Toggle sky beacon
+
+# gui
+schematichighlight.gui.title=Material Highlighter
+schematichighlight.gui.material=Material
+schematichighlight.gui.amount=Placed / Total
+schematichighlight.gui.missing=%d missing
+schematichighlight.gui.complete=complete
+schematichighlight.gui.highlightall=Highlight All Remaining
+schematichighlight.gui.beacon_on=Sky Beacon: ON
+schematichighlight.gui.beacon_off=Sky Beacon: OFF
+schematichighlight.gui.clear=Clear
+schematichighlight.gui.rescan=Rescan
+schematichighlight.gui.done=Done
+schematichighlight.gui.noschematic=No schematic is loaded. Load one in Schematica first.
+schematichighlight.gui.summary=%d materials, %d blocks remaining
+
+# chat / hud
+schematichighlight.msg.highlighting=Highlighting %d remaining %s
+schematichighlight.msg.highlightingall=Highlighting %d remaining blocks (%d materials)
+schematichighlight.msg.cleared=Highlights cleared
+schematichighlight.msg.complete=%s is already complete
+schematichighlight.msg.noschematic=No schematic loaded

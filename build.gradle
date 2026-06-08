@@ -1,0 +1,9 @@
+//version: 1707058017
+
+plugins {
+    id 'com.gtnewhorizons.gtnhconvention'
+}
+
+// This project isn't git-tag versioned, so provide the version explicitly (see gtnh.modules.gitVersion
+// in gradle.properties). Bump this string to release a new version.
+project.ext.modVersion = '1.0.0'

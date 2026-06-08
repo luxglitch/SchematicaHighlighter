@@ -1,0 +1,17 @@
+// Dependencies for the Schematica Material Highlighter add-on.
+//
+// We compile and run against Schematica's public classes (ClientProxy.schematic, SchematicWorld,
+// BlockList, etc.) and LunatriusCore's vector types (Vector3i). Both are pulled from the GTNH Maven
+// as already-deobfuscated ":dev" artifacts, so they do NOT need rfg.deobf(...).
+//
+// `implementation` keeps them on both the compile classpath and the dev (runClient) runtime classpath,
+// without shading them into this add-on's jar.
+//
+// NOTE: bump the Schematica version below to match the build you run against. You can see available
+// versions at https://nexus.gtnewhorizons.com/ (search "Schematica"). The value here matches the
+// latest GTNH release at time of writing.
+
+dependencies {
+    implementation('com.github.GTNewHorizons:Schematica:1.12.6-GTNH:dev')
+    implementation('com.github.GTNewHorizons:LunatriusCore:1.2.1-GTNH:dev')
+}
