@@ -6,4 +6,4 @@ plugins {
 
 // This project isn't git-tag versioned, so provide the version explicitly (see gtnh.modules.gitVersion
 // in gradle.properties). Bump this string to release a new version.
-project.ext.modVersion = '1.0.0'
+project.ext.modVersion = '1.1.0'

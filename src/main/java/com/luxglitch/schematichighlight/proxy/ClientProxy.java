@@ -3,6 +3,7 @@ package com.luxglitch.schematichighlight.proxy;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
 
+import com.luxglitch.schematichighlight.client.HighlightConfig;
 import com.luxglitch.schematichighlight.client.HighlightManager;
 import com.luxglitch.schematichighlight.client.input.InputHandler;
 import com.luxglitch.schematichighlight.client.render.HighlightRenderer;
@@ -16,6 +17,8 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
+        HighlightConfig.init(event.getSuggestedConfigurationFile());
+
         for (KeyBinding keyBinding : InputHandler.KEY_BINDINGS) {
             ClientRegistry.registerKeyBinding(keyBinding);
         }

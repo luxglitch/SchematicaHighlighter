@@ -7,7 +7,7 @@ public final class Reference {
 
     public static final String MODID = "schematichighlight";
     public static final String NAME = "Schematica Material Highlighter";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.1.0";
 
     /** Both Schematica and LunatriusCore must load before us; we use their public classes directly. */
     public static final String DEPENDENCIES = "required-after:Schematica;required-after:LunatriusCore;";

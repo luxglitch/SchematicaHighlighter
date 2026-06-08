@@ -11,26 +11,31 @@ import net.minecraft.item.ItemStack;
 
 import com.github.lunatrius.schematica.client.world.SchematicWorld;
 import com.github.lunatrius.schematica.proxy.ClientProxy;
+import com.luxglitch.schematichighlight.client.HighlightConfig;
 import com.luxglitch.schematichighlight.client.HighlightManager;
 import com.luxglitch.schematichighlight.client.MaterialEntry;
 import com.luxglitch.schematichighlight.client.MaterialScanner;
+
+import cpw.mods.fml.client.config.GuiSlider;
 
 /**
  * A clickable materials list. Clicking a row highlights that material's remaining blocks in the world;
  * "Highlight All Remaining" highlights everything still missing. Closing the screen leaves the
  * highlights active.
  */
-public class GuiMaterialHighlight extends GuiScreen {
+public class GuiMaterialHighlight extends GuiScreen implements GuiSlider.ISlider {
 
     private static final int BTN_ALL = 0;
     private static final int BTN_CLEAR = 1;
     private static final int BTN_RESCAN = 2;
     private static final int BTN_DONE = 3;
     private static final int BTN_BEACON = 4;
+    private static final int BTN_DIST = 5;
 
     private final GuiScreen parentScreen;
     private List<MaterialEntry> entries = new ArrayList<>();
     private GuiMaterialHighlightSlot slot;
+    private GuiSlider distanceSlider;
     private String title = "";
 
     public GuiMaterialHighlight(GuiScreen parentScreen) {
@@ -76,6 +81,22 @@ public class GuiMaterialHighlight extends GuiScreen {
         this.buttonList
             .add(new GuiButton(BTN_DONE, startX + 396, y, 70, 20, I18n.format("schematichighlight.gui.done")));
 
+        this.distanceSlider = new GuiSlider(
+            BTN_DIST,
+            this.width / 2 - 200,
+            this.height - 52,
+            180,
+            20,
+            I18n.format("schematichighlight.gui.markerrange") + ": ",
+            "",
+            HighlightConfig.MIN_DISTANCE,
+            HighlightConfig.MAX_DISTANCE,
+            HighlightConfig.getMarkerDistance(),
+            false,
+            true,
+            this);
+        this.buttonList.add(this.distanceSlider);
+
         this.slot = new GuiMaterialHighlightSlot(this);
     }
 
@@ -114,6 +135,19 @@ public class GuiMaterialHighlight extends GuiScreen {
     }
 
     @Override
+    public void onChangeSliderValue(GuiSlider slider) {
+        if (slider.id == BTN_DIST) {
+            // Apply live so the highlights update as you drag; persisted to disk on close.
+            HighlightConfig.setMarkerDistance(slider.getValueInt());
+        }
+    }
+
+    @Override
+    public void onGuiClosed() {
+        HighlightConfig.save();
+    }
+
+    @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         drawDefaultBackground();
 
@@ -145,6 +179,15 @@ public class GuiMaterialHighlight extends GuiScreen {
                 this.width / 2,
                 22,
                 0xA0A0A0);
+        }
+
+        if (HighlightConfig.getMarkerDistance() >= HighlightConfig.WARN_DISTANCE) {
+            drawString(
+                this.fontRendererObj,
+                I18n.format("schematichighlight.gui.distancewarn"),
+                this.width / 2 - 6,
+                this.height - 46,
+                0xFFAA00);
         }
 
         super.drawScreen(mouseX, mouseY, partialTicks);

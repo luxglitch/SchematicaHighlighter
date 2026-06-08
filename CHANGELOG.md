@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented here.
 
+## [1.1.0] - 2026-06-08
+
+### Added
+- **Configurable marker range**: a slider in the highlighter GUI adjusts how far box/outline markers
+  are drawn (16–256 blocks, default 96). The value is saved to `config/schematichighlight.cfg` and
+  persists between sessions. A warning appears once the range is set to 128 or higher, since large
+  values can cause lag on big builds. (The Sky Beacon is unaffected — it's never distance-limited.)
+
+### Fixed
+- **Sky Beacon is now visible from far away.** Previously beacons (and far markers) "didn't come up
+  until you got closer": they were clipped by the game's render-distance-based far clip plane, faded
+  by fog, and drawn too thin to see at range. The render pass now temporarily extends the far clip
+  plane, disables fog, and widens the beacon column with distance so it stays visible across a base.
+
 ## [1.0.0] - 2026-06-08
 
 First release.

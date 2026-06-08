@@ -22,7 +22,8 @@ class GuiMaterialHighlightSlot extends GuiSlot {
     protected int selectedIndex = -1;
 
     GuiMaterialHighlightSlot(GuiMaterialHighlight gui) {
-        super(Minecraft.getMinecraft(), gui.width, gui.height, 34, gui.height - 34, 24);
+        // Bottom is raised to leave room for the marker-range slider + button row beneath the list.
+        super(Minecraft.getMinecraft(), gui.width, gui.height, 34, gui.height - 58, 24);
         this.gui = gui;
     }
 

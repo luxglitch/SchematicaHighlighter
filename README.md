@@ -1,5 +1,6 @@
 # Schematica Material Highlighter
 
+[![Build](https://github.com/luxglitch/SchematicaHighlighter/actions/workflows/build.yml/badge.svg)](https://github.com/luxglitch/SchematicaHighlighter/actions/workflows/build.yml)
 [![Latest release](https://img.shields.io/github/v/release/luxglitch/SchematicaHighlighter?sort=semver)](https://github.com/luxglitch/SchematicaHighlighter/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/luxglitch/SchematicaHighlighter/total)](https://github.com/luxglitch/SchematicaHighlighter/releases)
 [![Minecraft 1.7.10](https://img.shields.io/badge/Minecraft-1.7.10-brightgreen)](https://github.com/GTNewHorizons)
@@ -54,6 +55,8 @@ In the GUI:
 - **Click a material row** → highlight that material's remaining blocks.
 - **Highlight All Remaining** → highlight everything still missing.
 - **Sky Beacon: ON/OFF** → toggle the tall locator columns for whatever is highlighted.
+- **Marker range** slider → how far box/outline markers draw (16–256 blocks; saved to config). A
+  warning appears at high values, which can lag big builds. The Sky Beacon ignores this limit.
 - **Clear** → remove highlights.
 - **Rescan** → recompute from the current world state.
 - **Done** → close (highlights stay active in the world).
